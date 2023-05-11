@@ -4,22 +4,22 @@ import ImgPlaceHolder from "../images/gokuTest.jpg";
 
 const allItems = [
     {
-        title: "Home",
+        title: "Store",
         description: "Never love the source, for you cannot understand it.",
         image: ImgPlaceHolder
     },
     {
-        title: "Home",
+        title: "Store",
         description: "With chilis drink joghurt.",
         image: ImgPlaceHolder
     },
     {
-        title: "Home",
+        title: "Store",
         description: "God, dead fish. you won't mark the quarter-deck.",
         image: ImgPlaceHolder
     },
     {
-        title: "Home",
+        title: "Store",
         description: "Countless green people handle post-apocalyptic, neutral tribbles.",
         image: ImgPlaceHolder
     }
@@ -27,7 +27,7 @@ const allItems = [
 
 const Store = () => {
     return (
-        <ItemListContainer greetings="Greetings" items={allItems} />
+        <ItemListContainer greetings="Store" items={allItems} />
     )
 }
 export default Store
