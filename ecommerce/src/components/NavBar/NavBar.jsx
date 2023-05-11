@@ -84,8 +84,8 @@ function NavBar(props) {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            {props.menuItems.map((page, key) => (
-                                <MenuItem key={key} onClick={handleCloseNavMenu}>
+                            {props.menuItems.map((page) => (
+                                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">{page.name}</Typography>
                                 </MenuItem>
                             ))}
@@ -111,14 +111,14 @@ function NavBar(props) {
                         {title}
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map((page, key) => (
+                        {pages.map(({name, path}) => (
                             <Button
-                                href={page.link}
-                                key={key}
+                                href={path}
+                                key={name}
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
-                                {page.name}
+                                {name}
                             </Button>
                         ))}
                     </Box>
