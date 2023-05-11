@@ -5,23 +5,27 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import ImgPlaceHolder from './images/gokuTest.jpg';
 
-export default function ImgMediaCard() {
+export default function ImgMediaCard(props) {
+
+    const title = props.title;
+    const description = props.description;
+    const image = props.image;
+
     return (
         <Card sx={{ maxWidth: 400 }}>
             <CardMedia
                 component="img"
-                alt="green iguana"
+                alt={title}
                 height="140"
-                image={ImgPlaceHolder}
+                image={image}
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                    Goku
+                    {title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    Son Gokū es un personaje ficticio, protagonista de la serie de manga y anime Dragon Ball. Fue creado por Akira Toriyama en 1984.
+                    {description}
                 </Typography>
             </CardContent>
             <CardActions>
