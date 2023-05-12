@@ -13,6 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import CartWidget from "./CartWidget/CartWidget";
+import NavBarTitle from "./NavBarTitle";
 
 function NavBar(props) {
 
@@ -35,25 +36,7 @@ function NavBar(props) {
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <img className="navbar__logo" alt={title} src={logoImage} />
-                    <Typography
-                        variant="h4"
-                        noWrap
-                        component="a"
-                        href="/"
-                        sx={{
-                            mr: 2,
-                            display: { xs: 'none', md: 'flex' },
-                            fontFamily: 'monospace',
-                            fontWeight: 800,
-                            letterSpacing: '0',
-                            color: 'inherit',
-                            textDecoration: 'none',
-                            size: '3rem',
-                        }}
-                    >
-                        {title}
-                    </Typography>
+                    <NavBarTitle title={title} logoImage={logoImage} />
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
@@ -84,18 +67,16 @@ function NavBar(props) {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            {props.menuItems.map((page) => (
-                                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                            {pages.map(({name, path}) => (
+                                <MenuItem key={name} onClick={handleCloseNavMenu}>
                                     <Typography textAlign="center">
-                                        {pages.map(({name, path}) => (
-                                            <Button
-                                                href={path}
-                                                key={name}
-                                                onClick={handleCloseNavMenu}
-                                            >
-                                                {name}
-                                            </Button>
-                                        ))}
+                                        <Button
+                                            href={path}
+                                            key={name}
+                                            onClick={handleCloseNavMenu}
+                                        >
+                                            {name}
+                                        </Button>
                                     </Typography>
                                 </MenuItem>
                             ))}
