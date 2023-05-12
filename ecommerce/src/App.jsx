@@ -1,5 +1,5 @@
 import React from 'react';
-import SiteRoutes from "./Routes/SiteRoutes";
+import SiteRoutes from "./routes/SiteRoutes";
 
 function App() {
     return (

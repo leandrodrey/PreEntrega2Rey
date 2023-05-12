@@ -9,10 +9,10 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Container from "@mui/material/Container";
 import NavBar from "../components/NavBar/NavBar";
 import imgLogo from '../components/NavBar/images/logo.png';
-import Home from "../Pages/Home";
-import Store from "../Pages/Store";
-import AboutUs from "../Pages/AboutUs";
-import ContactUs from "../Pages/ContactUs";
+import Home from "../pages/Home";
+import Store from "../pages/Store";
+import AboutUs from "../pages/AboutUs";
+import ContactUs from "../pages/ContactUs";
 
 const siteTheme = createTheme({
     palette: {

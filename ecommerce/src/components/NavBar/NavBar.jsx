@@ -86,7 +86,17 @@ function NavBar(props) {
                         >
                             {props.menuItems.map((page) => (
                                 <MenuItem key={page.name} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page.name}</Typography>
+                                    <Typography textAlign="center">
+                                        {pages.map(({name, path}) => (
+                                            <Button
+                                                href={path}
+                                                key={name}
+                                                onClick={handleCloseNavMenu}
+                                            >
+                                                {name}
+                                            </Button>
+                                        ))}
+                                    </Typography>
                                 </MenuItem>
                             ))}
                         </Menu>

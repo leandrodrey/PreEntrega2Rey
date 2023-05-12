@@ -11,6 +11,7 @@ export default function ImgMediaCard(props) {
     const title = props.title;
     const description = props.description;
     const image = props.image;
+    const price = props.price;
 
     return (
         <Card sx={{ maxWidth: 400 }}>
@@ -26,6 +27,9 @@ export default function ImgMediaCard(props) {
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                     {description}
+                </Typography>
+                <Typography variant="body3" color="text.secondary">
+                    ${price}
                 </Typography>
             </CardContent>
             <CardActions>

@@ -6,22 +6,26 @@ const hotItems = [
     {
         title: "Home",
         description: "Never love the source, for you cannot understand it.",
-        image: ImgPlaceHolder
+        image: ImgPlaceHolder,
+        price: 500
     },
     {
         title: "Home",
         description: "With chilis drink joghurt.",
-        image: ImgPlaceHolder
+        image: ImgPlaceHolder,
+        price: 500
     },
     {
         title: "Home",
         description: "God, dead fish. you won't mark the quarter-deck.",
-        image: ImgPlaceHolder
+        image: ImgPlaceHolder,
+        price: 500
     },
     {
         title: "Home",
         description: "Countless green people handle post-apocalyptic, neutral tribbles.",
-        image: ImgPlaceHolder
+        image: ImgPlaceHolder,
+        price: 500
     }
 ];
 

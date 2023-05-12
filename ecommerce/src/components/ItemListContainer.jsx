@@ -14,9 +14,9 @@ const ItemListContainer = (props) => {
             </Box>
             <Box sx={{ flexGrow: 1 }}>
                 <Grid container spacing={3}>
-                    {listItems.map(({title, description, image}) => (
+                    {listItems.map(({title, description, image, price}) => (
                         <Grid key={title} xs>
-                            <ImgMediaCard title={title} description={description} image={image} />
+                            <ImgMediaCard title={title} description={description} image={image} price={price} />
                         </Grid>
                     ))}
                 </Grid>
