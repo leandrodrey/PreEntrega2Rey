@@ -5,9 +5,12 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import AddIcon from '@mui/icons-material/Add';
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 
 export default function ImgMediaCard(props) {
 
+    const id = props.id;
     const title = props.title;
     const description = props.description;
     const image = props.image;
@@ -33,8 +36,8 @@ export default function ImgMediaCard(props) {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">Add to Cart</Button>
-                <Button size="small">View More</Button>
+                <Button href="#text-buttons" size="small" startIcon={<ShoppingCartCheckoutIcon />}>Add to Cart</Button>
+                <Button href={"/item/" + id} size="small" startIcon={<AddIcon />}>View More</Button>
             </CardActions>
         </Card>
     );
