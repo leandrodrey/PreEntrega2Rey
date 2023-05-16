@@ -115,9 +115,7 @@ function NavBar(props) {
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Shopping Cart">
-                            <CartWidget />
-                        </Tooltip>
+                        <CartWidget />
                     </Box>
                 </Toolbar>
             </Container>
