@@ -40,10 +40,6 @@ const menuItems = [
         path: '/'
     },
     {
-        name: 'Store',
-        path: '/store'
-    },
-    {
         name: 'About Us',
         path: '/aboutus'
     },
