@@ -1,14 +1,14 @@
 import React from 'react'
 import Typography from "@mui/material/Typography";
+import {Link} from "@mui/material";
 
 const NavBarTitle = (props) => {
 
-    const logoImage = props.logoImage;
-    const title = props.title;
+    const {title,logoImage} = props;
 
     return (
         <React.Fragment>
-            <img className="navbar__logo" alt={title} src={logoImage} />
+            <Link href="/"><img className="navbar__logo" alt={title} src={logoImage} /></Link>
             <Typography
                 variant="h4"
                 noWrap
