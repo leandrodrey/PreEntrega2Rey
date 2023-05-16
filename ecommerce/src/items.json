@@ -3,14 +3,14 @@
         "id": "1",
         "title": "Elden Ring 01",
         "description": "Las Tierras Intermedias se encuentran en un conflicto continuo a causa de la fragmentación del Anillo de Elden. En medio de las batallas y el caos, aparece un tiznado que debe seguir la Guía de la Gracia y convertirse en el Señor de Elden. Elegido por el corcel espectral Torrent y protegido por la doncella Melina, inicia su aventura…",
-        "image": "../images/slime.jpeg",
+        "image": "../images/eldenringmanga.webp",
         "price": "2000"
     },
     {
         "id": "2",
         "title": "Aquella vez que me convertí en Slime 04",
         "description": "EMPIEZA UNA NUEVA INVASIÓN! ¿QUÉ HARÁ NUESTRO PROTAGONISTA? Una noticia sacude el gran bosque de Jura... El señor de los orcos, el monstruo de la desgracia, ha empezado a invadirlo con un ejército de 200 000 soldados. Tras aceptar la petición de la supervisora del bosque, Rimur planea una alianza con los hombres lagarto...",
-        "image": "../images/eldenringmanga.webp",
+        "image": "../images/slime.jpeg",
         "price": "2000"
     },
     {
