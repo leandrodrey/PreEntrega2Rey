@@ -1,6 +1,6 @@
 import React from 'react'
 import Typography from "@mui/material/Typography";
-import {Link} from "@mui/material";
+import {NavLink} from "react-router-dom";
 
 const NavBarTitle = (props) => {
 
@@ -8,7 +8,9 @@ const NavBarTitle = (props) => {
 
     return (
         <React.Fragment>
-            <Link href="/"><img className="navbar__logo" alt={title} src={logoImage} /></Link>
+            <NavLink to={'/'}>
+                <img className="navbar__logo" alt={title} src={logoImage} />
+            </NavLink>
             <Typography
                 variant="h4"
                 noWrap
