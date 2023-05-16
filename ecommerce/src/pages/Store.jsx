@@ -1,6 +1,8 @@
 import React from 'react'
-import ItemListContainer from "../components/ItemListContainer";
+import ItemListContainer from "../components/ItemListContainer/ItemListContainer";
 import ImgPlaceHolder from "../images/gokuTest.jpg";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 const allItems = [
     {
@@ -35,7 +37,14 @@ const allItems = [
 
 const Store = () => {
     return (
-        <ItemListContainer greetings="Store" items={allItems} />
+        <React.Fragment>
+            <Box>
+                <Typography variant="h3" gutterBottom color="text.secondary">
+                    Store
+                </Typography>
+            </Box>
+            <ItemListContainer items={allItems} />
+        </React.Fragment>
     )
 }
 export default Store

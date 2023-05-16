@@ -9,6 +9,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Container from "@mui/material/Container";
 import NavBar from "../components/NavBar/NavBar";
 import imgLogo from '../components/NavBar/images/logo.png';
+import Footer from "../components/Footer/Footer";
 
 const siteTheme = createTheme({
     palette: {
@@ -67,6 +68,7 @@ const MainLayout = () => {
                 <Container maxWidth="xl">
                     <Outlet />
                 </Container>
+                <Footer />
             </ThemeProvider>
         </StyledEngineProvider>
     )

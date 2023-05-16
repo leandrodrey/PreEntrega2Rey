@@ -7,21 +7,21 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import AddIcon from '@mui/icons-material/Add';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
+import "./ImgMediaCard.css";
+import {useNavigate} from "react-router-dom";
 
 export default function ImgMediaCard(props) {
 
-    const id = props.id;
-    const title = props.title;
-    const description = props.description;
-    const image = props.image;
-    const price = props.price;
+    const {id, title, description, image, price} = props;
+
+    const navigate = useNavigate()
 
     return (
         <Card sx={{ maxWidth: 400 }}>
             <CardMedia
                 component="img"
                 alt={title}
-                height="140"
+                height="300"
                 image={image}
             />
             <CardContent>
@@ -31,13 +31,13 @@ export default function ImgMediaCard(props) {
                 <Typography variant="body2" color="text.secondary">
                     {description}
                 </Typography>
-                <Typography variant="body3" color="text.secondary">
+                <Typography className="imgMediaCard__price" variant="h4" color="text.secondary">
                     ${price}
                 </Typography>
             </CardContent>
             <CardActions>
                 <Button href="#text-buttons" size="small" startIcon={<ShoppingCartCheckoutIcon />}>Add to Cart</Button>
-                <Button href={"/item/" + id} size="small" startIcon={<AddIcon />}>View More</Button>
+                <Button onClick={()=>navigate(`/item/${id}`)} size="small" startIcon={<AddIcon />}>View More</Button>
             </CardActions>
         </Card>
     );

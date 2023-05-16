@@ -1,9 +1,11 @@
 import React from 'react'
-import ItemListContainer from "../components/ItemListContainer";
+import ItemListContainer from "../components/ItemListContainer/ItemListContainer";
 import EldenRing from '../images/eldenringmanga.webp';
 import Slime from '../images/slime.jpeg';
 import SwordArt from '../images/saocalibur1.webp';
 import ChainSawMan from '../images/chainsawman13.jpg';
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 const hotItems = [
     {
@@ -38,7 +40,14 @@ const hotItems = [
 
 const Home = () => {
     return (
-        <ItemListContainer greetings="Greetings" items={hotItems} />
+        <React.Fragment>
+            <Box>
+                <Typography variant="h3" gutterBottom color="text.secondary">
+                    Hot Items!
+                </Typography>
+            </Box>
+            <ItemListContainer items={hotItems} />
+        </React.Fragment>
     )
 }
 export default Home

@@ -1,5 +1,5 @@
 import React from 'react'
-import ImgMediaCard from "./Card/ImgMediaCard";
+import ImgMediaCard from "../Card/ImgMediaCard";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
 
@@ -9,9 +9,6 @@ const ItemListContainer = (props) => {
 
     return (
         <React.Fragment>
-            <Box>
-                <h2>{props.greetings}</h2>
-            </Box>
             <Box sx={{ flexGrow: 1 }}>
                 <Grid container spacing={3}>
                     {listItems.map(({id, title, description, image, price}) => (
