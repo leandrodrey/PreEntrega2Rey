@@ -1,5 +1,5 @@
 import React from 'react'
-import ImgMediaCard from "../Card/ImgMediaCard";
+import ImgMediaCard from "../ImgMediaCard/ImgMediaCard";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
 

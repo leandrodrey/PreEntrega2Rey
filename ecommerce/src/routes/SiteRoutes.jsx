@@ -15,6 +15,7 @@ const SiteRoutes = () => {
                 <Route path='/' element={<MainLayout/>}>
                     <Route index element={<Home/>} />
                     <Route path='/store' element={<Store/>} />
+                    <Route path='/store/category/:id' element={<Store/>} />
                     <Route path='/aboutus' element={<AboutUs/>} />
                     <Route path='/contactus' element={<ContactUs/>} />
                     <Route path='/item/:id' element={<ItemDetail/>} />

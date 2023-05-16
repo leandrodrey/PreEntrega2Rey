@@ -28,13 +28,6 @@ const hotItems = [
         description: "¡Sumamos un nuevo arco de SAO, esta vez en tomo único! Kirito enfrenta una complicada travesía para obtener la implacable arma legendaria \"Holy Sword Excalibur\" y así salvar a la diosa Urd de la invasión de los gigantes de hielo a su tierra natal, Jotunheim.",
         image: SwordArt,
         price: 2200
-    },
-    {
-        id: 4,
-        title: "Chainsaw Man 13",
-        description: "Chainsaw Man narra la historia de Denji, un pobre infeliz que haría cualquier cosa por guita. Su padre se suicidó dejándole una deuda impagable con la mafia, jamás en su vida lo abrazaron y gracias si puede apuntar a comerse una rodaja de pan lactal por día. ",
-        image: ChainSawMan,
-        price: 1800
     }
 ];
 
