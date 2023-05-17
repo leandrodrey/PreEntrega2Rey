@@ -17,11 +17,9 @@ const ItemDetail = () => {
     const [item, setItem] = useState({});
 
     useEffect(() => {
-        const filter = items.find((item) => item.id === id);
+        const filter = data.find((item) => item.id === id);
         setItem(filter);
     }, []);
-
-    const items = data;
 
     return (
         <React.Fragment>
