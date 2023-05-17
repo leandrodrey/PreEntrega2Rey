@@ -3,7 +3,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import {Paper} from "@mui/material";
+import {Divider, Paper} from "@mui/material";
 import {useNavigate, useParams} from "react-router-dom";
 import data from "../../items.json";
 import "./ItemDetailContainer.css";
@@ -47,6 +47,7 @@ const ItemDetail = () => {
                 <Typography className="itemDetailContainer__description" variant="body1" gutterBottom color="text.secondary" paragraph={true}>
                     {item.description}
                 </Typography>
+                <Divider />
                 <Grid className="itemDetailContainer__footer" container spacing={2}>
                     <Grid xs={8}>
                         <Button className="itemDetailContainer__goback" onClick={()=>navigate(-1)} size="small" startIcon={<ArrowBackIosIcon />}>Go back</Button>
