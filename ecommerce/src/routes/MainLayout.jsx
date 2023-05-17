@@ -40,6 +40,14 @@ const menuItems = [
         path: '/'
     },
     {
+        name: 'Seinen',
+        path: '/category/1'
+    },
+    {
+        name: 'Isekai',
+        path: '/category/2'
+    },
+    {
         name: 'About Us',
         path: '/aboutus'
     },

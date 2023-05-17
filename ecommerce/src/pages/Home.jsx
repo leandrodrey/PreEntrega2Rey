@@ -2,9 +2,6 @@ import React from 'react'
 import ItemListContainer from "../components/ItemListContainer/ItemListContainer";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import data from "../items.json";
-
-const productItems = data;
 
 const Home = () => {
     return (
@@ -14,7 +11,7 @@ const Home = () => {
                     Hot Items!
                 </Typography>
             </Box>
-            <ItemListContainer items={productItems} />
+            <ItemListContainer />
         </React.Fragment>
     )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import Container from "@mui/material/Container";
 import ItemDetailContainer from "../components/ItemDetailContainer/ItemDetailContainer";
 
-const ItemDetail = () => {
+const ItemDetailPage = () => {
 
     return (
         <React.Fragment>
@@ -12,4 +12,4 @@ const ItemDetail = () => {
         </React.Fragment>
     )
 }
-export default ItemDetail
+export default ItemDetailPage
