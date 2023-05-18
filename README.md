@@ -56,7 +56,7 @@
     <img alt="Material UI" src="https://img.shields.io/badge/Material Icons-4e56a6?style=for-the-badge&logo=mui&logoColor=white">
 </a>
 <a target="_blank" href="http://">
-    <img alt="React Router DOM" src="https://img.shields.io/badge/React Router dom-4e56a6?style=for-the-badge&logo=npm&logoColor=white">
+    <img alt="React Router DOM" src="https://img.shields.io/badge/React Router dom-green?style=for-the-badge&logo=npm&logoColor=white">
 </a>
 
 <h2>More Information</h2>
