@@ -2,6 +2,7 @@
   <img widht="150px" height="150px" src="https://cdn.worldvectorlogo.com/logos/react-2.svg" />
   <h1>React Course from <a target="_blank" href="https://www.coderhouse.com">Coderhouse</a></h1>
   <p>Repository for the second presentation of the final project.</p>
+  <a href="https://pre-entrega2-rey-due5.vercel.app/" taget="_blank">Project Demo!</a>
 </div>
 
 <h2>E-commerce</h2>
