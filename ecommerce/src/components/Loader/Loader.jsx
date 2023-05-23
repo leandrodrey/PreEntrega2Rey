@@ -10,8 +10,8 @@ const Loader = (props) => {
 
     return (
         <React.Fragment>
-            <Container maxWidth="xs">
-                <Box component="span" className="loader">
+            <Container maxWidth="xs" >
+                <Box component="div" className="loader_container" >
                     { showLoader && <CircularProgress color="secondary" /> }
                 </Box>
             </Container>
