@@ -1,6 +1,6 @@
 import React, {createContext} from 'react'
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import MainLayout from "./MainLayout";
+import MainLayout from "../components/MainLayout/MainLayout";
 import Home from "../pages/Home";
 import AboutUs from "../pages/AboutUs";
 import ContactUs from "../pages/ContactUs";

@@ -7,9 +7,10 @@ import {Outlet} from 'react-router-dom';
 import {StyledEngineProvider, ThemeProvider, createTheme} from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from "@mui/material/Container";
-import NavBar from "../components/NavBar/NavBar";
-import imgLogo from '../components/NavBar/images/logo.png';
-import Footer from "../components/Footer/Footer";
+import imgLogo from '../NavBar/images/logo.png';
+import NavBar from "../NavBar/NavBar";
+import Footer from "../Footer/Footer";
+import Loader from "../Loader/loader";
 
 const siteTheme = createTheme({
     palette: {
@@ -62,6 +63,7 @@ const MainLayout = () => {
         <StyledEngineProvider injectFirst>
             <ThemeProvider theme={siteTheme}>
                 <CssBaseline />
+                <Loader showLoader={true} />
                 <header>
                     <NavBar
                         title={siteInfo.name}
