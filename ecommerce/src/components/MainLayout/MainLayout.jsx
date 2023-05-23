@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -59,22 +59,36 @@ const menuItems = [
 ];
 
 const MainLayout = () => {
+
+    const [loader, setLoader] = useState(true);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setLoader(false);
+        }, 2000);
+    }, []);
+
     return (
         <StyledEngineProvider injectFirst>
             <ThemeProvider theme={siteTheme}>
                 <CssBaseline />
-                <Loader showLoader={true} />
-                <header>
-                    <NavBar
-                        title={siteInfo.name}
-                        logo={siteInfo.logo}
-                        menuItems={menuItems}
-                    />
-                </header>
-                <Container maxWidth="xl">
-                    <Outlet />
-                </Container>
-                <Footer />
+                { loader ?
+                    <Loader showLoader={true} />
+                :
+                    <React.Fragment>
+                        <header>
+                            <NavBar
+                                title={siteInfo.name}
+                                logo={siteInfo.logo}
+                                menuItems={menuItems}
+                            />
+                        </header>
+                        <Container maxWidth="xl">
+                            <Outlet />
+                        </Container>
+                        <Footer />
+                    </React.Fragment>
+                }
             </ThemeProvider>
         </StyledEngineProvider>
     )
