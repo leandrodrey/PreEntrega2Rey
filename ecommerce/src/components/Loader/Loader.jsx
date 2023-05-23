@@ -1,0 +1,21 @@
+import React from 'react'
+import {CircularProgress} from "@mui/material";
+import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
+import "./Loader.css";
+
+const Loader = (props) => {
+
+    const {showLoader} = props;
+
+    return (
+        <React.Fragment>
+            <Container maxWidth="xs">
+                <Box component="span" className="loader">
+                    { showLoader && <CircularProgress color="secondary" /> }
+                </Box>
+            </Container>
+        </React.Fragment>
+    )
+}
+export default Loader

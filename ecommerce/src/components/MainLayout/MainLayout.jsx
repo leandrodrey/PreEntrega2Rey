@@ -10,7 +10,7 @@ import Container from "@mui/material/Container";
 import imgLogo from '../NavBar/images/logo.png';
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
-import Loader from "../Loader/loader";
+import Loader from "../Loader/Loader";
 
 const siteTheme = createTheme({
     palette: {
