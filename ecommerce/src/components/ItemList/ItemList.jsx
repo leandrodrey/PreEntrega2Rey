@@ -1,6 +1,6 @@
 import React from 'react'
 import Grid from "@mui/material/Unstable_Grid2";
-import ImgMediaCard from "../ImgMediaCard/ImgMediaCard";
+import Item from "../Item/Item";
 
 const ItemList = (props) => {
 
@@ -10,7 +10,7 @@ const ItemList = (props) => {
         <React.Fragment>
             {items.map(({id, title, description, image, price}) => (
                 <Grid key={id}>
-                    <ImgMediaCard id={id} title={title} description={description} image={image} price={price} />
+                    <Item id={id} title={title} description={description} image={image} price={price} />
                 </Grid>
             ))}
         </React.Fragment>

@@ -7,11 +7,11 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import AddIcon from '@mui/icons-material/Add';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
-import "./ImgMediaCard.css";
+import "./Item.css";
 import {useNavigate} from "react-router-dom";
 import {Divider} from "@mui/material";
 
-export default function ImgMediaCard(props) {
+export default function Item(props) {
 
     const {id, title, description, image, price} = props;
 
