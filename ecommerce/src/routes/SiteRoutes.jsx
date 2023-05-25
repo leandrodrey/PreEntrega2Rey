@@ -6,6 +6,7 @@ import AboutUs from "../pages/AboutUs";
 import ContactUs from "../pages/ContactUs";
 import ItemDetailPage from "../pages/ItemDetailPage";
 import Error404 from "../pages/Error404";
+import Cart from "../pages/Cart";
 
 const SiteRoutes = () => {
     return (
@@ -17,6 +18,7 @@ const SiteRoutes = () => {
                     <Route path='/aboutus' element={<AboutUs/>} />
                     <Route path='/contactus' element={<ContactUs/>} />
                     <Route path='/item/:id' element={<ItemDetailPage/>} />
+                    <Route path='/cart' element={<Cart/>} />
                 </Route>
                 <Route path="*" element={<Error404/>} />
             </Routes>

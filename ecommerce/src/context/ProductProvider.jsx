@@ -1,22 +1,12 @@
 import React, {createContext} from 'react'
+import data from "../items.json";
 
-export const ProductContext = createContext("")
+export const ProductContext = createContext('')
 
 const ProductProvider = ({children}) => {
 
-    const products = [
-        {
-            "title": "Pipo",
-            "price": "2"
-        },
-        {
-            "title": "Pepe",
-            "price": "2"
-        }
-    ]
-
-    return(
-        <ProductContext.Provider value={{products}}>
+    return (
+        <ProductContext.Provider value={{data}}>
             {children}
         </ProductContext.Provider>
     )

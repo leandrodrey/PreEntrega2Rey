@@ -1,4 +1,5 @@
-import * as React from 'react';
+
+import {useState} from "react";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -13,9 +14,11 @@ import {Divider} from "@mui/material";
 
 export default function Item(props) {
 
-    const {id, title, description, image, price} = props;
-
-    const navigate = useNavigate()
+    const {id, title, description, image, price, addCart} = props;
+    const navigate = useNavigate();
+    const [count, setCount] = useState(0);
+    const handleSum = () => setCount(count + 1);
+    const handleReset = () => setCount(count - 1);
 
     return (
         <Card sx={{ maxWidth: 400 }}>
@@ -38,7 +41,10 @@ export default function Item(props) {
             </CardContent>
             <Divider />
             <CardActions>
-                <Button href="#text-buttons" size="small" startIcon={<ShoppingCartCheckoutIcon />}>Add to Cart</Button>
+                <button onClick={()=>handleReset()} disabled={count === 0}>-</button>
+                {count}
+                <button onClick={()=>handleSum()}>+</button>
+                <Button onClick={()=>addCart({title, description, price, count})} href="#text-buttons" size="small" startIcon={<ShoppingCartCheckoutIcon />}>Add to Cart</Button>
                 <Button onClick={()=>navigate(`/item/${id}`)} size="small" startIcon={<AddIcon />}>View More</Button>
             </CardActions>
         </Card>

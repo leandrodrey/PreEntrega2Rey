@@ -1,19 +1,19 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
 import {useNavigate, useParams} from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
-import data from "../../items.json";
 import Button from "@mui/material/Button";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import "./ItemListContainer.css";
+import {ProductContext} from "../../context/ProductProvider";
 
 const ItemListContainer = () => {
 
     const navigate = useNavigate();
     const {categoryId} = useParams();
-
     const [filteredItem, setFilteredItem] = useState([]);
+    const {data} = useContext(ProductContext);
 
     useEffect(() => {
         if (categoryId) {

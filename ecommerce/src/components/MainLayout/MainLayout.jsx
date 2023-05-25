@@ -11,6 +11,8 @@ import imgLogo from '../NavBar/images/logo.png';
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import Loader from "../Loader/Loader";
+import ProductProvider from "../../context/ProductProvider";
+import CartProvider from "../../context/CartProvider";
 
 const siteTheme = createTheme({
     palette: {
@@ -76,17 +78,21 @@ const MainLayout = () => {
                     <Loader showLoader={true} />
                 :
                     <React.Fragment>
-                        <header>
-                            <NavBar
-                                title={siteInfo.name}
-                                logo={siteInfo.logo}
-                                menuItems={menuItems}
-                            />
-                        </header>
-                        <Container maxWidth="xl">
-                            <Outlet />
-                        </Container>
-                        <Footer />
+                        <ProductProvider>
+                            <CartProvider>
+                                <header>
+                                    <NavBar
+                                        title={siteInfo.name}
+                                        logo={siteInfo.logo}
+                                        menuItems={menuItems}
+                                    />
+                                </header>
+                                <Container maxWidth="xl">
+                                    <Outlet />
+                                </Container>
+                                <Footer />
+                            </CartProvider>
+                        </ProductProvider>
                     </React.Fragment>
                 }
             </ThemeProvider>
