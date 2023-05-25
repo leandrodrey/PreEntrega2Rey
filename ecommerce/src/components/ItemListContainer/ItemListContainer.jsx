@@ -13,18 +13,18 @@ const ItemListContainer = () => {
     const navigate = useNavigate();
     const {categoryId} = useParams();
     const [filteredItem, setFilteredItem] = useState([]);
-    const {data} = useContext(ProductContext);
+    const {products} = useContext(ProductContext);
 
     useEffect(() => {
         if (categoryId) {
-            const filteredItems = data.filter(
+            const filteredItems = products.filter(
                 (filteredItem) => filteredItem.categoryId === categoryId
             );
             setFilteredItem(filteredItems);
         } else {
-            setFilteredItem(data);
+            setFilteredItem(products);
         }
-    }, [categoryId]);
+    }, [categoryId, products]);
 
     return (
         <React.Fragment>

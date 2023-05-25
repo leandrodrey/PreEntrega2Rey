@@ -5,14 +5,14 @@ import {ProductContext} from "../../context/ProductProvider";
 
 const ItemDetailContainer = () => {
 
-    const {data} = useContext(ProductContext);
+    const {products} = useContext(ProductContext);
     const {id} = useParams();
     const [item, setItem] = useState({});
 
     useEffect(() => {
-        const filter = data.find((item) => item.id === id);
+        const filter = products.find((item) => item.id === id);
         setItem(filter);
-    }, []);
+    }, [id, products]);
 
     return (
         <ItemDetail item={item} />

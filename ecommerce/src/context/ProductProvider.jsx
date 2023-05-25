@@ -1,15 +1,18 @@
-import React, {createContext} from 'react'
+import React, {createContext, useEffect} from 'react'
 import useFirebase from "../hooks/useFirebase";
 
 export const ProductContext = createContext('')
 
 const ProductProvider = ({children}) => {
 
-    const {products} = useFirebase();
-    const data = products;
-    console.log(data)
+    const {products, getProducts} = useFirebase();
+
+    useEffect(() => {
+        getProducts();
+    },[]);
+
     return (
-        <ProductContext.Provider value={{data}}>
+        <ProductContext.Provider value={{products}}>
             {children}
         </ProductContext.Provider>
     )
