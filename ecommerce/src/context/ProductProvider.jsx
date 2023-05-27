@@ -1,4 +1,4 @@
-import React, {createContext, useEffect} from 'react'
+import React, {createContext, useEffect, useMemo} from 'react'
 import useFirebase from "../hooks/useFirebase";
 
 export const ProductContext = createContext('')
@@ -6,13 +6,14 @@ export const ProductContext = createContext('')
 const ProductProvider = ({children}) => {
 
     const {products, getProducts} = useFirebase();
+    const value = useMemo(() => ({products}), [products]);
 
     useEffect(() => {
         getProducts();
     },[]);
 
     return (
-        <ProductContext.Provider value={{products}}>
+        <ProductContext.Provider value={value}>
             {children}
         </ProductContext.Provider>
     )
