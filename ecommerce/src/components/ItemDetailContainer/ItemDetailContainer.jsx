@@ -2,10 +2,12 @@ import React, {useContext, useEffect, useState} from 'react'
 import {useParams} from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import {ProductContext} from "../../context/ProductProvider";
+import {CartContext} from "../../context/CartProvider";
 
 const ItemDetailContainer = () => {
 
     const {products} = useContext(ProductContext);
+    const {addCart} = useContext(CartContext);
     const {id} = useParams();
     const [item, setItem] = useState({});
 
@@ -15,7 +17,7 @@ const ItemDetailContainer = () => {
     }, [id, products]);
 
     return (
-        <ItemDetail item={item} />
+        <ItemDetail item={item} addCart={addCart} />
     )
 }
 export default ItemDetailContainer
