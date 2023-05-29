@@ -18,4 +18,4 @@ const Loader = (props) => {
         </React.Fragment>
     )
 }
-export default Loader
+export default Loader;
