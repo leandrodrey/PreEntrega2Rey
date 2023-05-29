@@ -1,5 +1,5 @@
-import * as React from 'react';
-import {useContext} from "react";
+import React from 'react';
+import {useContext, useMemo} from "react";
 import Badge from '@mui/material/Badge';
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -12,10 +12,14 @@ const CartWidget = () => {
     const navigate = useNavigate();
     const {cart} = useContext(CartContext);
 
+    const cartLength = useMemo(() => {
+        return cart.length
+    }, [cart]);
+
     return (
         <React.Fragment>
             <IconButton onClick={()=>navigate(`/cart`)} aria-label="shopping cart button">
-                <Badge className="shopping-cart__badge" badgeContent={cart.length} max={999}>
+                <Badge className="shopping-cart__badge" badgeContent={cartLength} max={999}>
                     <ShoppingCartIcon className="shopping-cart__icon" />
                 </Badge>
             </IconButton>
@@ -23,4 +27,4 @@ const CartWidget = () => {
     )
 }
 
-export default CartWidget
+export default CartWidget;
