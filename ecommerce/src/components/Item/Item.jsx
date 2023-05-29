@@ -1,5 +1,5 @@
 
-import {useState} from "react";
+import React from "react";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -7,21 +7,22 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import AddIcon from '@mui/icons-material/Add';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import "./Item.css";
 import {useNavigate} from "react-router-dom";
 import {Divider} from "@mui/material";
+import useItemCount from "../../hooks/useItemCount";
 
-export default function Item(props) {
+const Item = (props) => {
 
-    const {id, title, description, image, price, addCart} = props;
     const navigate = useNavigate();
-    const [count, setCount] = useState(0);
-    const handleSum = () => setCount(count + 1);
-    const handleReset = () => setCount(count - 1);
+    const {id, title, description, image, price, addCart} = props;
+    const {count, handleSum, handleRest} = useItemCount();
 
     return (
-        <Card sx={{ maxWidth: 400 }}>
+        <Card sx={{maxWidth: 400}}>
             <CardMedia
                 component="img"
                 alt={title}
@@ -39,14 +40,21 @@ export default function Item(props) {
                     ${price}
                 </Typography>
             </CardContent>
-            <Divider />
+            <Divider/>
             <CardActions>
-                <button onClick={()=>handleReset()} disabled={count === 0}>-</button>
-                {count}
-                <button onClick={()=>handleSum()}>+</button>
-                <Button onClick={()=>addCart({title, description, price, count})} href="#text-buttons" size="small" startIcon={<ShoppingCartCheckoutIcon />}>Add to Cart</Button>
-                <Button onClick={()=>navigate(`/item/${id}`)} size="small" startIcon={<AddIcon />}>View More</Button>
+                <Button className="cardActions__restButton" color="secondary" onClick={() => handleRest()}
+                        disabled={count === 1}><ChevronLeftIcon/></Button>
+                <span>{count}</span>
+                <Button className="cardActions__sumButton" color="secondary"
+                        onClick={() => handleSum()}><ChevronRightIcon/></Button>
+
+                <Button onClick={() => addCart({title, description, price, count})} href="#"
+                        size="small" startIcon={<ShoppingCartCheckoutIcon/>}>Add to Cart</Button>
+                <Button onClick={() => navigate(`/item/${id}`)} size="small" startIcon={<AddIcon/>}>View More</Button>
             </CardActions>
         </Card>
-    );
+    )
+
 }
+
+export default Item;
