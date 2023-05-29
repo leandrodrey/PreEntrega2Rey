@@ -10,7 +10,7 @@ const ProductProvider = ({children}) => {
 
     useEffect(() => {
         getProducts();
-    },[]);
+    },[getProducts]);
 
     return (
         <ProductContext.Provider value={value}>
