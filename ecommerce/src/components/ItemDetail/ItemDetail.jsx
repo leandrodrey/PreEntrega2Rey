@@ -8,11 +8,15 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 import "./ItemDetail.css";
 import {useNavigate} from "react-router-dom";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import useItemCount from "../../hooks/useItemCount";
 
 const ItemDetail = (props) => {
 
     const navigate = useNavigate();
-    const {item} = props;
+    const {item, addCart} = props;
+    const {count, handleSum, handleRest} = useItemCount();
 
     return (
         <React.Fragment>
@@ -44,7 +48,12 @@ const ItemDetail = (props) => {
                         <Button className="itemDetailContainer__goback" onClick={()=>navigate(-1)} size="small" startIcon={<ArrowBackIosIcon />}>Go back</Button>
                     </Grid>
                     <Grid className="itemDetailContainer__gridCartButton" xs={4}>
-                        <Button href="#text-buttons" size="small" startIcon={<ShoppingCartCheckoutIcon />}>Add to Cart</Button>
+                        <Button className="cardActions__restButton" color="secondary" onClick={() => handleRest()}
+                                disabled={count === 1}><ChevronLeftIcon/></Button>
+                        <span>{count}</span>
+                        <Button className="cardActions__sumButton" color="secondary"
+                                onClick={() => handleSum()}><ChevronRightIcon/></Button>
+                        <Button onClick={() => addCart(item, count)} href="#" size="small" startIcon={<ShoppingCartCheckoutIcon />}>Add to Cart</Button>
                     </Grid>
                 </Grid>
             </Paper>
