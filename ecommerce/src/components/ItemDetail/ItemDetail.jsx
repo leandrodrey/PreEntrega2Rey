@@ -15,7 +15,8 @@ import useItemCount from "../../hooks/useItemCount";
 const ItemDetail = (props) => {
 
     const navigate = useNavigate();
-    const {item, addCart} = props;
+    const {title, price, image, description} = props.item;
+    const {addCart} = props;
     const {count, handleSum, handleRest} = useItemCount();
 
     return (
@@ -23,24 +24,24 @@ const ItemDetail = (props) => {
             <Grid className="itemDetailContainer__header" container spacing={2}>
                 <Grid xs={8}>
                     <Typography className="itemDetailContainer__title" variant="h3" color="text.secondary">
-                        {item.title}
+                        {title}
                     </Typography>
                 </Grid>
                 <Grid xs={4}>
                     <Typography className="itemDetailContainer__price" variant="h3" color="text.secondary">
-                        ${item.price}
+                        ${price}
                     </Typography>
                 </Grid>
             </Grid>
             <Paper elevation={3}>
                 <CardMedia
                     component="img"
-                    alt={item.title}
+                    alt={title}
                     height="500"
-                    image={item.image}
+                    image={image}
                 />
                 <Typography className="itemDetailContainer__description" variant="body1" gutterBottom color="text.secondary" paragraph={true}>
-                    {item.description}
+                    {description}
                 </Typography>
                 <Divider />
                 <Grid className="itemDetailContainer__footer" container spacing={2}>
@@ -53,7 +54,7 @@ const ItemDetail = (props) => {
                         <span>{count}</span>
                         <Button className="cardActions__sumButton" color="secondary"
                                 onClick={() => handleSum()}><ChevronRightIcon/></Button>
-                        <Button onClick={() => addCart(item, count)} href="#" size="small" startIcon={<ShoppingCartCheckoutIcon />}>Add to Cart</Button>
+                        <Button onClick={() => addCart({title, description, price, count})} href="#" size="small" startIcon={<ShoppingCartCheckoutIcon />}>Add to Cart</Button>
                     </Grid>
                 </Grid>
             </Paper>
