@@ -6,10 +6,9 @@ const CartProvider = ({children}) => {
 
     const [cart, setCart] = useState([]);
     const addCart = (item) => setCart([...cart, item]);
-    const value = useMemo(() => ({cart}), [cart]);
 
     return (
-        <CartContext.Provider value={{value, addCart}}>
+        <CartContext.Provider value={{cart, addCart}}>
             {children}
         </CartContext.Provider>
     )
