@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import {ProductContext} from "../../context/ProductProvider";
 import {CartContext} from "../../context/CartProvider";
+import {redirectsTo} from "../../helpers";
 
 const ItemDetailContainer = () => {
 
@@ -10,10 +11,6 @@ const ItemDetailContainer = () => {
     const {addCart} = useContext(CartContext);
     const {id} = useParams();
     const [filteredItem, setFilteredItem] = useState([]);
-
-    const redirectsToHome = useCallback(() => {
-        window.location.href = "/";
-    }, []);
 
     const filterProduct = useCallback(() => {
         const filteredItem = products.find((item) => item.id === id);
@@ -24,9 +21,9 @@ const ItemDetailContainer = () => {
         if (products.length > 0 && id) {
             filterProduct();
         } else {
-            redirectsToHome();
+            redirectsTo("/");
         }
-    }, [id, products, filterProduct, redirectsToHome]);
+    }, [id, products, filterProduct]);
 
     useEffect(() => {
         checkFilterProduct();
