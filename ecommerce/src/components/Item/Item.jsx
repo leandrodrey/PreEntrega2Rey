@@ -43,14 +43,11 @@ const Item = ({id, title, description, image, price}) => {
             </CardContent>
             <Divider/>
             <CardActions>
-                <Button className="cardActions__restButton" color="secondary" onClick={() => handleRest()}
-                        disabled={count === 1}><ChevronLeftIcon/></Button>
+                <Button onClick={() => handleRest()} className="cardActions__restButton" color="secondary" disabled={count === 1}><ChevronLeftIcon/></Button>
                 <span>{count}</span>
-                <Button className="cardActions__sumButton" color="secondary"
-                        onClick={() => handleSum()}><ChevronRightIcon/></Button>
+                <Button onClick={() => handleSum()} className="cardActions__sumButton" color="secondary"><ChevronRightIcon/></Button>
 
-                <Button onClick={() => addCart({title, description, price, count})} href="#"
-                        size="small" startIcon={<ShoppingCartCheckoutIcon/>}>Add to Cart</Button>
+                <Button onClick={() => addCart({title, description, price, count})} href="#" size="small" startIcon={<ShoppingCartCheckoutIcon/>}>Add to Cart</Button>
                 <Button onClick={() => navigate(`/item/${id}`)} size="small" startIcon={<AddIcon/>}>View More</Button>
             </CardActions>
         </Card>
