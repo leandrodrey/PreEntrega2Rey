@@ -48,14 +48,6 @@ const menuItems = [
     {
         name: 'Isekai',
         path: '/category/2'
-    },
-    {
-        name: 'About Us',
-        path: '/aboutus'
-    },
-    {
-        name: 'Contact Us',
-        path: '/contactus'
     }
 ];
 
