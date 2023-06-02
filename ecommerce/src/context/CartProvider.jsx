@@ -1,5 +1,5 @@
 import React, {createContext, useState} from 'react';
-import {getTotalItems} from "../helpers";
+import {getTotalItems, getTotalPayment} from "../helpers";
 
 export const CartContext = createContext('')
 
@@ -8,10 +8,10 @@ const CartProvider = ({children}) => {
     const [cart, setCart] = useState([]);
     const addCart = (item) => setCart([...cart, item]);
 
-    const totalItems = getTotalItems(cart);
+    const totalPayments = getTotalPayment(cart);
 
     return (
-        <CartContext.Provider value={{cart, addCart, totalItems}}>
+        <CartContext.Provider value={{cart, addCart, totalPayments}}>
             {children}
         </CartContext.Provider>
     )

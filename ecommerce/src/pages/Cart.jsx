@@ -7,7 +7,7 @@ import {ProductContext} from "../context/ProductProvider";
 
 const Cart = () => {
 
-    const {cart, total} = useContext(CartContext);
+    const {cart, totalPayments} = useContext(CartContext);
     const {handleSubmit} = useContext(ProductContext);
 
     return (
@@ -21,7 +21,7 @@ const Cart = () => {
                         {item.title} - Cantidad: {item.count}
                     </li>
                 )}
-                Total: ${total}
+                Total: ${totalPayments}
             </Typography>
             <Form total={cart.length} items={cart} handleSubmit={handleSubmit}/>
         </Box>
