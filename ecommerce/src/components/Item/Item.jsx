@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, {useContext} from "react";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -14,11 +14,12 @@ import "./Item.css";
 import {useNavigate} from "react-router-dom";
 import {Divider} from "@mui/material";
 import useItemCount from "../../hooks/useItemCount";
+import {CartContext} from "../../context/CartProvider";
 
-const Item = (props) => {
+const Item = ({id, title, description, image, price}) => {
 
+    const {addCart} = useContext(CartContext);
     const navigate = useNavigate();
-    const {id, title, description, image, price, addCart} = props;
     const {count, handleSum, handleRest} = useItemCount();
 
     return (
