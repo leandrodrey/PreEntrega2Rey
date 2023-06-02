@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Grid from "@mui/material/Unstable_Grid2";
 import Typography from "@mui/material/Typography";
 import {Divider, Paper} from "@mui/material";
@@ -11,12 +11,13 @@ import {useNavigate} from "react-router-dom";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import useItemCount from "../../hooks/useItemCount";
+import {CartContext} from "../../context/CartProvider";
 
 const ItemDetail = (props) => {
 
+    const {addCart} = useContext(CartContext);
     const navigate = useNavigate();
     const {title, price, image, description} = props.item;
-    const {addCart} = props;
     const {count, handleSum, handleRest} = useItemCount();
 
     return (

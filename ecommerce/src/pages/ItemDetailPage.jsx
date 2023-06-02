@@ -1,15 +1,33 @@
-import React from 'react'
+import React, {useContext, useEffect} from 'react'
 import Container from "@mui/material/Container";
-import ItemDetailContainer from "../components/ItemDetailContainer/ItemDetailContainer";
+import {useParams} from "react-router-dom";
+import {redirectsTo} from "../helpers";
+import {ProductContext} from "../context/ProductProvider";
+import ItemDetail from "../components/ItemDetail/ItemDetail";
 
 const ItemDetailPage = () => {
 
-    return (
-        <React.Fragment>
+    const {id} = useParams();
+
+    if (!id) {
+        redirectsTo("/");
+    }
+
+    const {product, getProductById} = useContext(ProductContext);
+
+    useEffect( () => {
+        getProductById(id);
+    }, []);
+
+    if (!product) {
+        return <></>
+    } else {
+        return (
             <Container disableGutters maxWidth="md">
-                <ItemDetailContainer />
+                <ItemDetail item={product} />
             </Container>
-        </React.Fragment>
-    )
+        )
+    }
+
 }
-export default ItemDetailPage
+export default ItemDetailPage;
