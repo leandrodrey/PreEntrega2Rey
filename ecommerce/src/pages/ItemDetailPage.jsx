@@ -3,7 +3,7 @@ import Container from "@mui/material/Container";
 import {useParams} from "react-router-dom";
 import {ProductContext} from "../context/ProductProvider";
 import ItemDetail from "../components/ItemDetail/ItemDetail";
-import Typography from "@mui/material/Typography";
+import Loader from "../components/Loader/Loader";
 
 const ItemDetailPage = () => {
 
@@ -22,9 +22,7 @@ const ItemDetailPage = () => {
         )
     } else {
         return (
-            <Typography variant="h4" gutterBottom color="text.secondary">
-                Product not found
-            </Typography>
+            <Loader showLoader={true} />
         )
     }
 
