@@ -6,6 +6,7 @@
         "image": "../images/eldenringmanga.webp",
         "price": "2000",
         "categoryId": "1",
+        "stock": 5,
         "categoryName": "Seinen"
     },
     {
@@ -15,6 +16,7 @@
         "image": "../images/slime.jpeg",
         "price": "2000",
         "categoryId": "2",
+        "stock": 7,
         "categoryName": "Isekai"
     },
     {
@@ -24,6 +26,7 @@
         "image": "../images/saocalibur1.webp",
         "price": "2200",
         "categoryId": "2",
+        "stock": 13,
         "categoryName": "Isekai"
     },
     {
@@ -33,6 +36,7 @@
         "image": "../images/chainsawman13.jpg",
         "price": "1800",
         "categoryId": "1",
+        "stock": 15,
         "categoryName": "Seinen"
     }
 ]
