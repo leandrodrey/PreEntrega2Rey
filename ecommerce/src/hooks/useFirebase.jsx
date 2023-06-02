@@ -25,7 +25,20 @@ const UseFirebase = () => {
         }
     }
 
-    // TODO - Agregar método getProductById el cual reciba un id y retorne el producto con ese id
+    const getProductsByCategoryId = async (categoryId) => {
+        setLoading(true);
+        try {
+            /*const data = await getDocs(getFirestore('products'));
+            const result = data.docs.map(doc => doc={id:doc.id,...doc.data()});*/
+            const filteredItem = await item.filter((item) => item.categoryId === categoryId);
+            setProducts(filteredItem);
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setLoading(false);
+        }
+    }
+
     const getProductById = async (id) => {
         setLoading(true);
         try {
@@ -48,6 +61,7 @@ const UseFirebase = () => {
 
     return {
         getProducts,
+        getProductsByCategoryId,
         products,
         getProductById,
         product,
