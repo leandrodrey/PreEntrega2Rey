@@ -1,5 +1,5 @@
 import React, {createContext, useState} from 'react';
-import {getTotalItems, getTotalPayment, getTotalPaymentFromCart} from "../helpers";
+import {getTotalPaymentFromCart} from "../helpers";
 
 export const CartContext = createContext('')
 
