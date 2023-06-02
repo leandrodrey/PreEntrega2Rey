@@ -13,12 +13,12 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import useItemCount from "../../hooks/useItemCount";
 import {CartContext} from "../../context/CartProvider";
 
-const ItemDetail = (props) => {
+const ItemDetail = ({product}) => {
 
     const {addCart} = useContext(CartContext);
     const navigate = useNavigate();
-    const {title, price, image, description} = props.item;
     const {count, handleSum, handleRest} = useItemCount();
+    const {title, price, image, description} = product;
 
     return (
         <React.Fragment>

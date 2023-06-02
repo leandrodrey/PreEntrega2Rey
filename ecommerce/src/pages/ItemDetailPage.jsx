@@ -4,6 +4,7 @@ import {useParams} from "react-router-dom";
 import {redirectsTo} from "../helpers";
 import {ProductContext} from "../context/ProductProvider";
 import ItemDetail from "../components/ItemDetail/ItemDetail";
+import Typography from "@mui/material/Typography";
 
 const ItemDetailPage = () => {
 
@@ -20,11 +21,15 @@ const ItemDetailPage = () => {
     }, []);
 
     if (!product) {
-        return <></>
+        return (
+            <Typography>
+                The item don't exist
+            </Typography>
+        )
     } else {
         return (
             <Container disableGutters maxWidth="md">
-                <ItemDetail item={product} />
+                <ItemDetail product={product} />
             </Container>
         )
     }
