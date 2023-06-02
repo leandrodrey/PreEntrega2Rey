@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from 'react'
 import Container from "@mui/material/Container";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {redirectsTo} from "../helpers";
 import {ProductContext} from "../context/ProductProvider";
 import ItemDetail from "../components/ItemDetail/ItemDetail";
@@ -10,27 +10,23 @@ const ItemDetailPage = () => {
 
     const {id} = useParams();
 
-    if (!id) {
-        redirectsTo("/");
-    }
-
     const {product, getProductById} = useContext(ProductContext);
 
     useEffect( () => {
         getProductById(id);
     }, []);
 
-    if (!product) {
-        return (
-            <Typography>
-                The item don't exist
-            </Typography>
-        )
-    } else {
+    if (product) {
         return (
             <Container disableGutters maxWidth="md">
                 <ItemDetail product={product} />
             </Container>
+        )
+    } else {
+        return (
+            <Typography variant="h4" gutterBottom color="text.secondary">
+                Product not found
+            </Typography>
         )
     }
 
