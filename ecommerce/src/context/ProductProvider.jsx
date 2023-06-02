@@ -5,10 +5,10 @@ export const ProductContext = createContext('')
 
 const ProductProvider = ({children}) => {
 
-    const {products, product, getProductById, getProducts, handleSubmit} = useFirebase();
+    const {products, product, getProductById, getProductsByCategoryId, getProducts, handleSubmit} = useFirebase();
 
     return (
-        <ProductContext.Provider value={{products, product, getProductById, getProducts, handleSubmit}}>
+        <ProductContext.Provider value={{products, product, getProductById, getProductsByCategoryId, getProducts, handleSubmit}}>
             {children}
         </ProductContext.Provider>
     )
