@@ -18,7 +18,7 @@ const Cart = () => {
             <Typography variant="h5" gutterBottom color="text.secondary">
                 {cart.map(item =>
                     <li key={item.title}>
-                        {item.title} - Cantidad: {item.count}
+                        {item.title} - Count: {item.count}
                     </li>
                 )}
                 Total: ${totalPayments}
