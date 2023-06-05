@@ -4,18 +4,16 @@ import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import "./Loader.css";
 
-const Loader = (props) => {
-
-    const {showLoader} = props;
+const Loader = ({showLoader}) => {
 
     return (
-        <React.Fragment>
+        <>
             <Container maxWidth="xs" >
                 <Box component="div" className="loader_container" >
                     { showLoader && <CircularProgress color="secondary" /> }
                 </Box>
             </Container>
-        </React.Fragment>
+        </>
     )
 }
 export default Loader;
