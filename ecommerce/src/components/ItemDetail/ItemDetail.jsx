@@ -18,10 +18,10 @@ const ItemDetail = ({product}) => {
     const {addCart} = useContext(CartContext);
     const navigate = useNavigate();
     const {count, handleSum, handleRest} = useItemCount();
-    const {title, price, image, description} = product;
+    const {id, title, price, image, description} = product;
 
     return (
-        <React.Fragment>
+        <>
             <Grid className="itemDetailContainer__header" container spacing={2}>
                 <Grid xs={8}>
                     <Typography className="itemDetailContainer__title" variant="h3" color="text.secondary">
@@ -55,11 +55,11 @@ const ItemDetail = ({product}) => {
                         <span>{count}</span>
                         <Button className="cardActions__sumButton" color="secondary"
                                 onClick={() => handleSum()}><ChevronRightIcon/></Button>
-                        <Button onClick={() => addCart({title, description, price, count})} href="#" size="small" startIcon={<ShoppingCartCheckoutIcon />}>Add to Cart</Button>
+                        <Button onClick={() => addCart({id, title, description, price, count})} href="#" size="small" startIcon={<ShoppingCartCheckoutIcon />}>Add to Cart</Button>
                     </Grid>
                 </Grid>
             </Paper>
-        </React.Fragment>
+        </>
     )
 }
 export default ItemDetail
