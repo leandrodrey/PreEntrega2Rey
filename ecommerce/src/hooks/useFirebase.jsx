@@ -1,19 +1,20 @@
 import {useState} from 'react'
-import {collection, getDoc, getDocs, addDoc, doc} from "firebase/firestore";
+import {collection, getDoc, getDocs, addDoc, doc, where, query} from "firebase/firestore";
 import {db} from "../services/firebase.config";
 import item from "../items.json";
+import useLoader from "./useLoader";
 
 const UseFirebase = () => {
 
     const [products, setProducts] = useState([]);
     const [product, setProduct] = useState(null);
-    const [loading,setLoading] = useState(false);
+    const {startLoader, stopLoader} = useLoader();
 
     const getFirestore = (path) => {
         return collection(db, path);
     }
     const getProducts = async () => {
-        setLoading(true);
+        startLoader();
         try {
             const col = collection(db,"products")
             const data = await getDocs(col);
@@ -23,12 +24,12 @@ const UseFirebase = () => {
         } catch (error) {
             console.log(error);
         } finally {
-            setLoading(false);
+            stopLoader();
         }
     }
 
     const getProductById = async (id) => {
-        setLoading(true);
+        startLoader();
         try {
             const document = doc(db,"products", id)
             const response = await getDoc(document)
@@ -39,22 +40,22 @@ const UseFirebase = () => {
         } catch (error) {
             console.log(error);
         } finally {
-            setLoading(false);
+            stopLoader();
         }
     }
 
     const getProductsByCategoryId = async (categoryId) => {
-        setLoading(true);
+        startLoader();
         try {
-            const col = collection(db,"products");
-            const data = await getDocs(col);
-            const results = data.docs.map(doc => doc={id:doc.id,...doc.data()});
-            const filteredItem = results.filter((item) => item.categoryId === categoryId);
-            setProducts(filteredItem);
+            const documents = query(collection(db, 'products'), where('categoryId', '==', categoryId));
+            const data = await getDocs(documents)
+            const result = data.docs.map(doc => doc={id:doc.id,...doc.data()});
+            setProducts(result);
+            //const filteredItem = results.filter((item) => item.categoryId === categoryId);
         } catch (error) {
             console.log(error);
         } finally {
-            setLoading(false);
+            stopLoader();
         }
     }
 
