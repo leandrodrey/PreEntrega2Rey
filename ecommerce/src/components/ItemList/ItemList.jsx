@@ -15,7 +15,7 @@ const ItemList = ({products, categoryId}) => {
         <Box sx={{ flexGrow: 1 }}>
             {categoryId &&
                 <Grid className="itemListContainer__category" xs={12}>
-                    <Button className="itemDetailContainer__goback" onClick={()=>navigate(`/`)} size="small" startIcon={<ArrowBackIosIcon />}>All products</Button>
+                    <Button className="itemDetailContainer__goback" onClick={() => navigate(-1)} size="small" startIcon={<ArrowBackIosIcon />}>Go Back</Button>
                 </Grid>
             }
             <Grid container spacing={3}>
