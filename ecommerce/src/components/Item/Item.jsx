@@ -47,7 +47,7 @@ const Item = ({id, title, description, image, price}) => {
                 <span>{count}</span>
                 <Button onClick={() => handleSum()} className="cardActions__sumButton" color="secondary"><ChevronRightIcon/></Button>
 
-                <Button onClick={() => addCart({title, description, price, count})} href="#" size="small" startIcon={<ShoppingCartCheckoutIcon/>}>Add to Cart</Button>
+                <Button onClick={() => addCart({id, title, description, price, count})} href="#" size="small" startIcon={<ShoppingCartCheckoutIcon/>}>Add to Cart</Button>
                 <Button onClick={() => navigate(`/item/${id}`)} size="small" startIcon={<AddIcon/>}>View More</Button>
             </CardActions>
         </Card>
