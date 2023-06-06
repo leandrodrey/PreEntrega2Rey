@@ -10,8 +10,6 @@ import Container from "@mui/material/Container";
 import imgLogo from '../NavBar/images/logo.png';
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
-import ProductProvider from "../../context/ProductProvider";
-import CartProvider from "../../context/CartProvider";
 
 const siteTheme = createTheme({
     palette: {
@@ -57,23 +55,20 @@ const MainLayout = () => {
         <StyledEngineProvider injectFirst>
             <ThemeProvider theme={siteTheme}>
                 <CssBaseline />
-                <ProductProvider>
-                    <CartProvider>
-                        <header>
-                            <NavBar
-                                title={siteInfo.name}
-                                logo={siteInfo.logo}
-                                menuItems={menuItems}
-                            />
-                        </header>
-                        <Container maxWidth="xl">
-                            <Outlet />
-                        </Container>
-                        <Footer />
-                    </CartProvider>
-                </ProductProvider>
+                <header>
+                    <NavBar
+                        title={siteInfo.name}
+                        logo={siteInfo.logo}
+                        menuItems={menuItems}
+                    />
+                </header>
+                <Container maxWidth="xl">
+                    <Outlet />
+                </Container>
+                <Footer />
             </ThemeProvider>
         </StyledEngineProvider>
     )
+
 }
 export default MainLayout
