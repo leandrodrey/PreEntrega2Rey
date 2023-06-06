@@ -13,6 +13,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import CartWidget from "./CartWidget/CartWidget";
 import NavBarTitle from "./NavBarTitle";
+import {useNavigate} from "react-router-dom";
 
 function NavBar(props) {
 
@@ -22,6 +23,7 @@ function NavBar(props) {
     const pages = props.menuItems;
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
+    const navigate = useNavigate();
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -67,12 +69,18 @@ function NavBar(props) {
                             }}
                         >
                             {pages.map(({name, path}) => (
-                                <MenuItem key={name} onClick={handleCloseNavMenu}>
+                                <MenuItem key={name} onClick={() => {
+                                    handleCloseNavMenu();
+                                    navigate(path);
+                                }}>
                                     <Typography textAlign="center">
                                         <Button
-                                            href={path}
+                                            //href={path}
                                             key={name}
-                                            onClick={handleCloseNavMenu}
+                                            onClick={() => {
+                                                handleCloseNavMenu();
+                                                navigate(path);
+                                            }}
                                         >
                                             {name}
                                         </Button>
@@ -103,10 +111,12 @@ function NavBar(props) {
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map(({name, path}) => (
                             <Button
-                                href={path}
                                 key={name}
-                                onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
+                                onClick={() => {
+                                    handleCloseNavMenu();
+                                    navigate(path);
+                                }}
                             >
                                 {name}
                             </Button>
