@@ -1,29 +1,25 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext, useEffect} from 'react'
 import {ProductContext} from "../context/ProductProvider";
 import {useParams} from "react-router-dom";
 import ItemList from "../components/ItemList/ItemList";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Loader from "../components/Loader/Loader";
-import useLoader from "../hooks/useLoader";
+import {LoaderContext} from "../context/LoaderProvider";
 
 const Home = () => {
 
     const {products, getProducts, getProductsByCategoryId} = useContext(ProductContext);
+    const {isLoading} = useContext(LoaderContext);
     const {categoryId} = useParams();
-    const {showLoader, startLoader, stopLoader} = useLoader();
 
     useEffect(() => {
-        startLoader();
-        categoryId ? getProductsByCategoryId(categoryId) : getProducts()
-        setTimeout(() => {
-            stopLoader();
-        }, 1000);
-    }, []);
+        categoryId ? getProductsByCategoryId(categoryId) : getProducts();
+    }, [categoryId]);
 
-    if (showLoader) {
+    if (isLoading) {
         return (
-            <Loader showLoader={true} />
+            <Loader showLoader={isLoading} />
         )
     }
 
