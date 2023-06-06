@@ -1,11 +1,33 @@
-import React, {createContext, useState} from 'react';
-import {getTotalPaymentFromCart} from "../helpers";
+import React, {createContext, useEffect, useState} from 'react';
 
 export const CartContext = createContext('')
 
 const CartProvider = ({children}) => {
 
     const [cart, setCart] = useState([]);
+
+    useEffect(() => {
+        const storedCart = sessionStorage.getItem('cart');
+        if (storedCart) {
+            try {
+                const parsedCart = JSON.parse(storedCart);
+                console.log(parsedCart, 'parsedCart');
+                if (Array.isArray(parsedCart)) {
+                    setCart(parsedCart);
+                } else {
+                    console.log('Invalid cart data sessionStorage.');
+                }
+            } catch (error) {
+                console.log('Error parsing cart data from sessionStorage:', error);
+            }
+        }
+    }, []);
+
+    console.log(cart, 'cart');
+
+    useEffect(() => {
+        sessionStorage.setItem('cart', JSON.stringify(cart));
+    }, [cart]);
 
     const addCart = (item) => {
         if (checkIfItemExistInCart(item.id)) {
@@ -29,10 +51,12 @@ const CartProvider = ({children}) => {
         return cart.some((item) => item.id === id);
     }
 
-    const totalPayments = getTotalPaymentFromCart(cart);
+    const getTotalPaymentFromCart = () => {
+        return cart.reduce((prev, curr) => prev + (curr.price * curr.count), 0);
+    };
 
     return (
-        <CartContext.Provider value={{cart, addCart, totalPayments}}>
+        <CartContext.Provider value={{cart, addCart, getTotalPaymentFromCart}}>
             {children}
         </CartContext.Provider>
     )
