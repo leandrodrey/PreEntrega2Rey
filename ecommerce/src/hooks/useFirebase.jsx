@@ -1,18 +1,15 @@
-import {useState} from 'react'
+import {useContext, useState} from 'react'
 import {collection, getDoc, getDocs, addDoc, doc, where, query} from "firebase/firestore";
 import {db} from "../services/firebase.config";
 import item from "../items.json";
-import useLoader from "./useLoader";
+import {LoaderContext} from "../context/LoaderProvider";
 
 const UseFirebase = () => {
 
+    const {startLoader, stopLoader} = useContext(LoaderContext);
     const [products, setProducts] = useState([]);
     const [product, setProduct] = useState(null);
-    const {startLoader, stopLoader} = useLoader();
 
-    const getFirestore = (path) => {
-        return collection(db, path);
-    }
     const getProducts = async () => {
         startLoader();
         try {
