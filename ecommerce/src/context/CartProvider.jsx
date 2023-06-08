@@ -11,7 +11,6 @@ const CartProvider = ({children}) => {
         if (storedCart) {
             try {
                 const parsedCart = JSON.parse(storedCart);
-                console.log(parsedCart, 'parsedCart');
                 if (Array.isArray(parsedCart)) {
                     setCart(parsedCart);
                 } else {
@@ -23,19 +22,20 @@ const CartProvider = ({children}) => {
         }
     }, []);
 
-    console.log(cart, 'cart');
-
-    useEffect(() => {
-        sessionStorage.setItem('cart', JSON.stringify(cart));
-    }, [cart]);
-
     const addCart = (item) => {
+        let localCart = [];
         if (checkIfItemExistInCart(item.id)) {
-            setCart(updatedCart(item.id));
+            localCart = updatedCart(item.id)
         } else {
-            setCart([...cart, item]);
+            localCart = [...cart, item]
         }
+        setCart(localCart);
+        saveCartInSessionStorage(localCart)
     };
+
+    const saveCartInSessionStorage = (cart) => {
+        sessionStorage.setItem('cart', JSON.stringify(cart));
+    }
 
     const updatedCart = (id) => cart.map((cartItem) => {
         if (cartItem.id === id) {
