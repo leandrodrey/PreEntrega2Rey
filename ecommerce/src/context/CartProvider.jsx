@@ -22,6 +22,10 @@ const CartProvider = ({children}) => {
         }
     }, []);
 
+    const saveCartInSessionStorage = (cart) => {
+        sessionStorage.setItem('cart', JSON.stringify(cart));
+    }
+
     const addCart = (item) => {
         let localCart = [];
         if (checkIfItemExistInCart(item.id)) {
@@ -30,12 +34,8 @@ const CartProvider = ({children}) => {
             localCart = [...cart, item]
         }
         setCart(localCart);
-        saveCartInSessionStorage(localCart)
+        saveCartInSessionStorage(localCart);
     };
-
-    const saveCartInSessionStorage = (cart) => {
-        sessionStorage.setItem('cart', JSON.stringify(cart));
-    }
 
     const updatedCart = (id) => cart.map((cartItem) => {
         if (cartItem.id === id) {
