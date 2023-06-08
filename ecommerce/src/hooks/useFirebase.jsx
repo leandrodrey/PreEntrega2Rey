@@ -1,7 +1,6 @@
 import {useContext, useState} from 'react'
 import {collection, getDoc, getDocs, addDoc, doc, where, query} from "firebase/firestore";
 import {db} from "../services/firebase.config";
-import item from "../items.json";
 import {LoaderContext} from "../context/LoaderProvider";
 
 const UseFirebase = () => {
@@ -17,7 +16,6 @@ const UseFirebase = () => {
             const data = await getDocs(col);
             const result = data.docs.map(doc => doc={id:doc.id,...doc.data()});
             setProducts(result);
-            /*setProducts(item);*/
         } catch (error) {
             console.log(error);
         } finally {
@@ -32,8 +30,6 @@ const UseFirebase = () => {
             const response = await getDoc(document)
             const result = response.data()
             setProduct({id:response.id,...result})
-            /*const randomItem = await item[Math.floor(Math.random() * item.length)];
-            setProduct(randomItem);*/
         } catch (error) {
             console.log(error);
         } finally {
@@ -48,7 +44,6 @@ const UseFirebase = () => {
             const data = await getDocs(documents)
             const result = data.docs.map(doc => doc={id:doc.id,...doc.data()});
             setProducts(result);
-            //const filteredItem = results.filter((item) => item.categoryId === categoryId);
         } catch (error) {
             console.log(error);
         } finally {
