@@ -10,6 +10,9 @@ import Container from "@mui/material/Container";
 import imgLogo from '../NavBar/images/logo.png';
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
+import './MainLayout.css';
+import HomeIcon from '@mui/icons-material/Home';
+import CategoryIcon from '@mui/icons-material/Category';
 
 const siteTheme = createTheme({
     palette: {
@@ -37,15 +40,18 @@ const siteInfo = {
 const menuItems = [
     {
         name: 'Home',
-        path: '/'
+        path: '/',
+        icon: <HomeIcon />
     },
     {
         name: 'Seinen',
-        path: '/category/1'
+        path: '/category/1',
+        icon: <CategoryIcon />
     },
     {
         name: 'Isekai',
-        path: '/category/2'
+        path: '/category/2',
+        icon: <CategoryIcon />
     }
 ];
 
@@ -62,10 +68,10 @@ const MainLayout = () => {
                         menuItems={menuItems}
                     />
                 </header>
-                <Container maxWidth="xl">
+                <Container className="main_container" maxWidth="xl">
                     <Outlet />
                 </Container>
-                <Footer />
+                <Footer menuItems={menuItems} />
             </ThemeProvider>
         </StyledEngineProvider>
     )
