@@ -56,7 +56,8 @@ const UseFirebase = () => {
         startLoader();
         try {
             const col = collection(db,"orders");
-            setOrder (await addDoc(col, form));
+            const newOrder  = await addDoc(col, form);
+            setOrder(newOrder);
         } catch (error) {
             console.log(error);
         } finally {
