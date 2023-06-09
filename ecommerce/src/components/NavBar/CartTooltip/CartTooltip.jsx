@@ -2,6 +2,7 @@ import React, {useContext} from 'react'
 import Typography from "@mui/material/Typography";
 import {CartContext} from "../../../context/CartProvider";
 import "./CartTooltip.css"
+import {Paper} from "@mui/material";
 
 const CartTooltip = () => {
 
@@ -9,7 +10,7 @@ const CartTooltip = () => {
 
     return (
         <>
-            <div className="cartTooltip">
+            <Paper className="cartTooltip" elevation={5}>
                 <Typography variant="h6" color="text.primary">
                     In your cart:
                 </Typography>
@@ -28,7 +29,7 @@ const CartTooltip = () => {
                 <Typography variant="h6" gutterBottom color="text.secondary">
                     Total: ${getTotalPaymentFromCart()}
                 </Typography>
-            </div>
+            </Paper>
         </>
     )
 }

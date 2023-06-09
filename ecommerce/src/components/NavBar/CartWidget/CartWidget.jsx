@@ -5,7 +5,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import './CartWidget.css';
 import {useNavigate} from "react-router-dom";
 import {CartContext} from "../../../context/CartProvider";
-import {styled} from "@mui/material";
+import {styled, Zoom} from "@mui/material";
 import Tooltip, {tooltipClasses} from "@mui/material/Tooltip";
 import CartTooltip from "../CartTooltip/CartTooltip";
 
@@ -18,11 +18,10 @@ const CartWidget = () => {
         <Tooltip {...props} classes={{ popper: className }} />
     ))(({ theme }) => ({
         [`& .${tooltipClasses.tooltip}`]: {
-            backgroundColor: '#f5f5f9',
-            color: 'rgba(0, 0, 0, 0.87)',
-            maxWidth: 220,
-            fontSize: theme.typography.pxToRem(12),
-            border: '1px solid #dadde9',
+            backgroundColor: 'transparent',
+            maxWidth: 250,
+            fontSize: theme.typography.pxToRem(14),
+            border: '0',
         },
     }));
 
@@ -30,6 +29,8 @@ const CartWidget = () => {
         <React.Fragment>
             <IconButton onClick={()=>navigate(`/cart`)} aria-label="shopping cart button">
                 <HtmlTooltip
+                    TransitionComponent={Zoom}
+                    TransitionProps={{ timeout: 600 }}
                     title={
                         (cart.length > 0) &&
                         <React.Fragment>
