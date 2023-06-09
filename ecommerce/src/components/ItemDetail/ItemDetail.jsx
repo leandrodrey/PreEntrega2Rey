@@ -55,7 +55,7 @@ const ItemDetail = ({product}) => {
                         <span>{count}</span>
                         <Button className="cardActions__sumButton" color="secondary"
                                 onClick={() => handleSum()}><ChevronRightIcon/></Button>
-                        <Button onClick={() => addCart({id, title, description, price, count})} href="#" size="small" startIcon={<ShoppingCartCheckoutIcon />}>Add to Cart</Button>
+                        <Button onClick={() => addCart({id, title, description, price, image, count})} href="#" size="small" startIcon={<ShoppingCartCheckoutIcon />}>Add to Cart</Button>
                     </Grid>
                 </Grid>
             </Paper>
