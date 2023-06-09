@@ -14,7 +14,7 @@ const CartProvider = ({children}) => {
     const addCart = (item) => {
         let localCart;
         if (checkIfItemExistInCart(item.id)) {
-            localCart = updatedCart(item.id)
+            localCart = updatedCart(item)
         } else {
             localCart = [...cart, item]
         }
@@ -22,11 +22,11 @@ const CartProvider = ({children}) => {
         saveCartInSessionStorage('cart', localCart);
     };
 
-    const updatedCart = (id) => cart.map((cartItem) => {
-        if (cartItem.id === id) {
+    const updatedCart = (item) => cart.map((cartItem) => {
+        if (cartItem.id === item.id) {
             return {
                 ...cartItem,
-                count: cartItem.count + 1
+                count: cartItem.count + item.count
             };
         }
         return cartItem;
