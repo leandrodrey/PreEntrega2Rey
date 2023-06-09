@@ -5,10 +5,10 @@ export const OrderContext = createContext('')
 
 const OrderProvider = ({children}) => {
 
-    const { generatedOrder } = useFirebase();
+    const { order } = useFirebase();
 
     return (
-        <OrderContext.Provider value={{ generatedOrder }}>
+        <OrderContext.Provider value={{ order }}>
             {children}
         </OrderContext.Provider>
     )

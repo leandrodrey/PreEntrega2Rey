@@ -3,6 +3,7 @@ import SiteRoutes from "./routes/SiteRoutes";
 import CartProvider from "./context/CartProvider";
 import ProductProvider from "./context/ProductProvider";
 import LoaderProvider from "./context/LoaderProvider";
+import OrderProvider from "./context/OrderProvider";
 
 function App() {
     return (
@@ -10,12 +11,14 @@ function App() {
             <LoaderProvider>
                 <ProductProvider>
                     <CartProvider>
-                        <SiteRoutes/>
+                        <OrderProvider>
+                            <SiteRoutes/>
+                        </OrderProvider>
                     </CartProvider>
                 </ProductProvider>
             </LoaderProvider>
         </React.Fragment>
-    );
+    )
 }
 
 export default App;

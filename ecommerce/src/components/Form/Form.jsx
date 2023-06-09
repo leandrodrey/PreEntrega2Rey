@@ -18,7 +18,7 @@ const Form = () => {
     const {handleSubmit} = useContext(ProductContext);
     const {cart, getTotalPaymentFromCart, removeAllItemsFromCart} = useContext(CartContext);
     const {isLoading, stopLoader} = useContext(LoaderContext);
-    const {order, setOrder} = useContext(OrderContext);
+    const {order} = useContext(OrderContext);
 
     const [form, setForm] = useState({
         buyer: {
@@ -49,8 +49,8 @@ const Form = () => {
     const handleSubmitForm = (e) => {
         e.preventDefault();
         handleSubmit(form);
+        //setOrder(handleSubmit(form));
         removeAllItemsFromCart();
-        setOrder(form);
     }
 
     if (isLoading) {
@@ -59,7 +59,6 @@ const Form = () => {
         )
     }
 
-    console.log(order, 'order in cart');
     if (order) {
         return (
             <div>
