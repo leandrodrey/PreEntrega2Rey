@@ -26,7 +26,7 @@ const CartTooltip = () => {
                     )}
                 </ol>
                 <Typography variant="h6" gutterBottom color="text.secondary">
-                    SubTotal: ${getTotalPaymentFromCart()}
+                    Total: ${getTotalPaymentFromCart()}
                 </Typography>
             </div>
         </>
