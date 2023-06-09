@@ -1,4 +1,5 @@
 import React, {createContext, useEffect, useState} from 'react';
+import {getCartFromSessionStorage, saveCartInSessionStorage} from "../helpers/SessionStorage";
 
 export const CartContext = createContext('')
 
@@ -7,24 +8,8 @@ const CartProvider = ({children}) => {
     const [cart, setCart] = useState([]);
 
     useEffect(() => {
-        const storedCart = sessionStorage.getItem('cart');
-        if (storedCart) {
-            try {
-                const parsedCart = JSON.parse(storedCart);
-                if (Array.isArray(parsedCart)) {
-                    setCart(parsedCart);
-                } else {
-                    console.log('Invalid cart data sessionStorage.');
-                }
-            } catch (error) {
-                console.log('Error parsing cart data from sessionStorage:', error);
-            }
-        }
+        getCartFromSessionStorage('cart') && setCart(getCartFromSessionStorage('cart'));
     }, []);
-
-    const saveCartInSessionStorage = (cart) => {
-        sessionStorage.setItem('cart', JSON.stringify(cart));
-    }
 
     const addCart = (item) => {
         let localCart = [];
@@ -34,7 +19,7 @@ const CartProvider = ({children}) => {
             localCart = [...cart, item]
         }
         setCart(localCart);
-        saveCartInSessionStorage(localCart);
+        saveCartInSessionStorage('cart', localCart);
     };
 
     const updatedCart = (id) => cart.map((cartItem) => {
@@ -55,8 +40,19 @@ const CartProvider = ({children}) => {
         return cart.reduce((prev, curr) => prev + (curr.price * curr.count), 0);
     };
 
+    const removeItemFromCart = (id) => {
+        const updatedCart = cart.filter((item) => item.id !== id);
+        setCart(updatedCart);
+        saveCartInSessionStorage('cart', updatedCart);
+    }
+
+    const removeAllItemsFromCart = () => {
+        setCart([]);
+        saveCartInSessionStorage('cart', []);
+    }
+
     return (
-        <CartContext.Provider value={{cart, addCart, getTotalPaymentFromCart}}>
+        <CartContext.Provider value={{cart, setCart, addCart, getTotalPaymentFromCart, removeItemFromCart, removeAllItemsFromCart}}>
             {children}
         </CartContext.Provider>
     )
