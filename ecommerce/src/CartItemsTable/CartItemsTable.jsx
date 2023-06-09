@@ -38,7 +38,7 @@ const CartItemsTable = () => {
                                 <TableRow>
                                     <TableCell className="cell_product">
                                         <img className="cell_product_image" src={item.image} alt={item.title} width="50" height="50" />
-                                        <Typography className="cell_product_title" variant="h5" gutterBottom color="text.secondary">
+                                        <Typography className="cell_product_title" variant="h6" gutterBottom color="text.secondary">
                                             {item.title}
                                         </Typography>
                                     </TableCell>
