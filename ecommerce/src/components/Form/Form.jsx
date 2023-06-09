@@ -13,13 +13,12 @@ import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 import PersonIcon from '@mui/icons-material/Person';
 import Typography from "@mui/material/Typography";
 
-
-const Form = (props) => {
+const Form = () => {
 
     const {handleSubmit} = useContext(ProductContext);
     const {cart, getTotalPaymentFromCart, removeAllItemsFromCart} = useContext(CartContext);
     const {isLoading, stopLoader} = useContext(LoaderContext);
-    const {order} = useContext(OrderContext);
+    const {order, setOrder} = useContext(OrderContext);
 
     const [form, setForm] = useState({
         buyer: {
@@ -51,6 +50,7 @@ const Form = (props) => {
         e.preventDefault();
         handleSubmit(form);
         removeAllItemsFromCart();
+        setOrder(form);
     }
 
     if (isLoading) {
@@ -78,12 +78,11 @@ const Form = (props) => {
             <form className="order_form" onSubmit={handleSubmitForm} action="">
                 <TextField
                     onChange={handleChange}
-                    hiddenLabel
+                    id="outlined-required"
+                    label="Required"
                     type="email"
                     name="email"
                     placeholder="Email"
-                    variant="filled"
-                    size="small"
                     required
                     InputProps={{
                         startAdornment: (
@@ -95,12 +94,11 @@ const Form = (props) => {
                 />
                 <TextField
                     onChange={handleChange}
-                    hiddenLabel
+                    id="outlined-required"
+                    label="Required"
                     type="text"
                     name="phone"
                     placeholder="Phone"
-                    variant="filled"
-                    size="small"
                     required
                     InputProps={{
                         startAdornment: (
@@ -112,12 +110,11 @@ const Form = (props) => {
                 />
                 <TextField
                     onChange={handleChange}
-                    hiddenLabel
+                    id="outlined-required"
+                    label="Required"
                     type="text"
                     name="name"
                     placeholder="First Name"
-                    variant="filled"
-                    size="small"
                     required
                     InputProps={{
                         startAdornment: (
@@ -129,13 +126,11 @@ const Form = (props) => {
                 />
                 <TextField
                     onChange={handleChange}
-                    hiddenLabel
+                    id="outlined-required"
+                    label="Required"
                     type="text"
                     name="lastName"
                     placeholder="Last Name"
-                    id="filled-hidden-label-normal"
-                    variant="filled"
-                    size="small"
                     required
                     InputProps={{
                         startAdornment: (
