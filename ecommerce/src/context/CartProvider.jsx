@@ -12,7 +12,7 @@ const CartProvider = ({children}) => {
     }, []);
 
     const addCart = (item) => {
-        let localCart = [];
+        let localCart;
         if (checkIfItemExistInCart(item.id)) {
             localCart = updatedCart(item.id)
         } else {
