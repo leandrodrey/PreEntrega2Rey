@@ -27,7 +27,7 @@ const CartItemsTable = () => {
                     <TableHead>
                         <TableRow>
                             <TableCell>Product</TableCell>
-                            <TableCell align="right">Count</TableCell>
+                            <TableCell align="right">Amount</TableCell>
                             <TableCell align="right">Subtotal&nbsp;($)</TableCell>
                             <TableCell align="right">Delete from cart</TableCell>
                         </TableRow>
