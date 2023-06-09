@@ -22,6 +22,8 @@ const Item = ({id, title, description, image, price}) => {
     const navigate = useNavigate();
     const {count, handleSum, handleRest} = useItemCount();
 
+    const shortDescription = description.length > 200 ? description.slice(0, 200) + '...' : description;
+
     return (
         <Card sx={{maxWidth: 400}}>
             <CardMedia
@@ -35,7 +37,7 @@ const Item = ({id, title, description, image, price}) => {
                     {title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    {description}
+                    {shortDescription}
                 </Typography>
                 <Typography className="imgMediaCard__price" variant="h4" color="text.secondary">
                     ${price}
