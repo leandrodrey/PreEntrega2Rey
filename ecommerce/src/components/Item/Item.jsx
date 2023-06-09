@@ -22,6 +22,7 @@ const Item = ({id, title, description, image, price}) => {
     const navigate = useNavigate();
     const {count, handleSum, handleRest} = useItemCount();
 
+    const shortTitle = title.length > 30 ? title.slice(0, 30) + '...' : title;
     const shortDescription = description.length > 200 ? description.slice(0, 200) + '...' : description;
 
     return (
@@ -34,7 +35,7 @@ const Item = ({id, title, description, image, price}) => {
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                    {title}
+                    {shortTitle}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                     {shortDescription}
